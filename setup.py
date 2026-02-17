@@ -26,7 +26,7 @@ class izzy:
     #neuron threshold
     thresh = 'v>30'
     
-    #random indices for excitatory and inhibitory neurons
+    #random indices for excitatory ("ecn") and inhibitory neurons
     def ecn_inhib_init(N, Percent_ecn):
         excitatory = []
         inhibitory = []
