@@ -2,7 +2,7 @@ from brian2 import *
 from math import exp, floor, sqrt
 import matplotlib.pyplot as plt
 import numpy as np
-from setup import izzy, pos_3D, STDP1, write_video, vectormap
+from setup import izzy, pos_3D, STDP1, vectormap #removed write_video function not found in setup.py and seemingly not used here either
 
 def Wave(seednum, batch, RATE):
     seed(seednum)

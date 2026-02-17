@@ -26,7 +26,7 @@ class izzy:
     #neuron threshold
     thresh = 'v>30'
     
-    #random indices for excitatory and inhibitory neurons
+    #random indices for excitatory ("ecn") and inhibitory neurons
     def ecn_inhib_init(N, Percent_ecn):
         excitatory = []
         inhibitory = []
@@ -75,13 +75,13 @@ class izzy:
     SE_w = '0.5*K*rand()' 
     SI_w = '-K*rand()'
     
-    def speed(start, SPIKES_i, SPIKES_t, G_x, G_y, G_z):
+    def speed(start, SPIKES_i, SPIKES_t, G_x, G_y, G_z): #probably function to calculate a wave speed analogue
         speeds = []
-        induse = 0
+        induse = 0 #induce? or is this a technical term?
         time = SPIKES_t[induse]
 
         Search = True
-        while Search == True:
+        while Search == True: #finds first spike occuring after "start" time
             induse += 1
             time = SPIKES_t[induse]
             if time >= start:
@@ -91,7 +91,7 @@ class izzy:
         for i in range(16):
             dists = []
             current = time
-            while time < current + 5:
+            while time < current + 5: #finds distance of spiking neuron from center of system; only counts spikes near wavefront
                 neuron = SPIKES_i[induse]
                 xval = abs(G_x[neuron] - 49.5)
                 yval = abs(G_y[neuron] - 49.5)
@@ -100,7 +100,7 @@ class izzy:
                 dists.append(dist)
                 induse += 1
                 time = SPIKES_t[induse]
-            if i > 0:
+            if i > 0: #i.e. don't count i = 0 loop result
                 speeds.append((np.mean(dists) - preval)/5)
             preval = np.mean(dists)
     
