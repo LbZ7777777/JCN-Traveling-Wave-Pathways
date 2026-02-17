@@ -1,7 +1,7 @@
 from brian2 import *
 from math import exp, floor, sqrt
 from matplotlib.pyplot import *   
-from setup import izzy, pos_3D, STDP1, reg_synapse, write_video, vectormap, wave_propagation
+from setup import izzy, pos_3D, STDP1, reg_synapse, vectormap #removed write_video and wave_propagation function not found in setup.py and seemingly not used here either
 
 def Wave(seednum,batch, RATE):
     seed(seednum)
