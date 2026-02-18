@@ -159,7 +159,7 @@ class pos_3D:
             if jj + 1 == 9:
                 plt.colorbar()
         plt.savefig(name)
-        plt.show()
+        plt.show(block=False) #https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html added "block = False" argument so Wave functions don't pause here until you manually close the figure.
     
 #function for creating vectormaps of weight change:
 class vectormap:
