@@ -25,6 +25,7 @@ class izzy:
 
     #neuron threshold
     thresh = 'v>30'
+    #lines above this are inputs to brian.NeuronGroup() function
     
     #random indices for excitatory ("ecn") and inhibitory neurons
     def ecn_inhib_init(N, Percent_ecn):
@@ -53,7 +54,7 @@ class izzy:
     rest = '((b-5) - sqrt((5-b)**2 - 4*0.04*140))/0.08'
     restu = 'v * b'
     
-    ###lower stimulation currents for inhibit'ory neurons
+    ###lower stimulation currents for inhibitory neurons
     #regular random stimulation w/random magnitude
     stim_type = 'I_post += rand()*STIMRANGE*(ecn_post + (2/5)*(1-ecn_post))'
     #time-specific stimulation
@@ -320,7 +321,7 @@ class vectormap:
         return([y_pos, x_pos, y_mag, x_mag])
       
 #regular current-input synapse
-class reg_synapse:
+class reg_synapse: #also function arguments for brian.Synapses()
     eqns = '''
     w : 1
     '''
@@ -328,7 +329,7 @@ class reg_synapse:
     I_post += w
     ''' 
 #Regular STDP, no Inhibitory Rules, No Metaplasticity
-class STDP1:
+class STDP1: #contains function arguments for brian.Synapses()
     eqns = '''
     w : 1
     dapre/dt = -apre/tau_pre : 1 (event-driven)
