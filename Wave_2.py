@@ -171,8 +171,9 @@ def Wave(seednum, batch, RATE):
         print('percent complete = ', 100.0*((i+1)/Nsteps))
         
 
-    filename11 = str(batch) +  '/' + str(batch) + str(seednum) + 'wdist.npy'
-    np.save(filename11, [w1vals, w2vals, w3vals])
+    #code removed; prob. legacy code but w1vals, w2vals, and w3vals are never created and this causes a code crash
+    #filename11 = str(batch) +  '/' + str(batch) + str(seednum) + 'wdist.npy'
+    #np.save(filename11, [w1vals, w2vals, w3vals])
         
     #saving relevant quantities
     np.save(fileName1, rate)
